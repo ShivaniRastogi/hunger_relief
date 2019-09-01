@@ -6,20 +6,20 @@
      <!-- Required meta tags -->
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     <link rel="icon" href="static/img/favicon.png" type="image/png">
+     <link rel="icon" href="../img/favicon.png" type="image/png">
      <title>Seelife Charity</title>
      <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="../static/css/bootstrap.css">
-     <link rel="stylesheet" href="../static/linericon/style.css">
-     <link rel="stylesheet" href="../static/t-awesome.min.css">
-     <link rel="stylesheet" href="../static/vendors/lightbox/simpleLightbox.css">
-     <link rel="stylesheet" href="../static/vendors/nice-select/css/nice-select.css">
+     <link rel="stylesheet" href="../css/bootstrap.css">
+     <link rel="stylesheet" href="../linericon/style.css">
+     <link rel="stylesheet" href="../t-awesome.min.css">
+     <link rel="stylesheet" href="../vendors/lightbox/simpleLightbox.css">
+     <link rel="stylesheet" href="../vendors/nice-select/css/nice-select.css">
          <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
-            <link type="text/css" rel="stylesheet" href="../static/css/about.css"/>
+            <link type="text/css" rel="stylesheet" href="../css/about.css"/>
 
      <!-- main css -->
-     <link rel="stylesheet" href="../static/css/style.css">
-     <link rel="stylesheet" href="../static/css/responsive.css">
+     <link rel="stylesheet" href="../css/style.css">
+     <link rel="stylesheet" href="../css/responsive.css">
  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,20 +39,20 @@
     <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="../static/css/main.css" rel="stylesheet" media="all">
+    <link href="../css/main.css" rel="stylesheet" media="all">
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="../static/img/favicon.png" type="image/png">
+        <link rel="icon" href="../img/favicon.png" type="image/png">
         <title>Seelife Charity</title>
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../vendors/linericon/style.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../vendors/lightbox/simpleLightbox.css">
+        <link rel="stylesheet" href="../vendors/nice-select/css/nice-select.css">
         <!-- main css -->
-        <link rel="stylesheet" href="../static/css/style.css">
-        <link rel="stylesheet" href="../static/css/responsive.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/responsive.css">
         <style> 
 body {
   background-image: url("img\banner\home-banner.jpg");
@@ -112,23 +112,12 @@ body {
                     <h2 class="title">Event Registration Form</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST">
+                    <form action="/restaurant/form" method="POST">
                         <div class="form-row m-b-55">
                             <div class="name">Name</div>
                             <div class="value">
-                                <div class="row row-space">
-                                    <div class="col-5">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="first_name">
-                                            <label class="label--desc">first name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-5">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="last_name">
-                                            <label class="label--desc">last name</label>
-                                        </div>
-                                    </div>
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="contact_person_name">
                                 </div>
                             </div>
                         </div>
@@ -136,7 +125,7 @@ body {
                             <div class="name">Restaurant Name</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="company">
+                                    <input class="input--style-5" type="text" name="restaurant_name">
                                 </div>
                             </div>
                         </div>
@@ -152,26 +141,42 @@ body {
                             <div class="name">Phone</div>
                             <div class="value">
                                 <div class="row row-refine">
-                                    <div class="col-3">
+                                    <!-- <div class="col-3">
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="area_code">
                                             <label class="label--desc">Area Code</label>
                                         </div>
+                                    </div> -->
+                                    <!-- <div class="col-9"> -->
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="text" name="phone">
+                                        <label class="label--desc">Phone Number</label>
                                     </div>
-                                    <div class="col-9">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="phone">
-                                            <label class="label--desc">Phone Number</label>
-                                        </div>
-                                    </div>
+                                    <!-- </div> -->
                                 </div>
                             </div>
                         </div>
-                         <div class="form-row">
-                            <div class="name">Location</div>
+                        <div class="form-row">
+                            <div class="name">city</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="input" name="">
+                                    <input class="input--style-5" type="input" name="city">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">country</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="input" name="country">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Address</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="input" name="address">
                                 </div>
                             </div>
                         </div>
@@ -179,7 +184,7 @@ body {
                                 <div class="name">Serving Size</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-5" type="number" name="serving">
+                                        <input class="input--style-5" type="number" name="serving_per_person">
                                     </div>
                                 </div>
                             </div>

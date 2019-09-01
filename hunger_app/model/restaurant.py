@@ -9,6 +9,7 @@ class Restaurant(Base):
     contact_person_name = db.Column(db.String, nullable=True)
     restaurant_name = db.Column(db.String, nullable=True)
     phone = db.Column(db.String, nullable=True)
+    email = db.Column(db.String, nullable=True)
     city = db.Column(db.String, nullable=True)
     country = db.Column(db.String, nullable=True)
     address = db.Column(db.String, nullable=True)

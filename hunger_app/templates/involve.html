@@ -8,17 +8,17 @@
         <link rel="icon" href="img/favicon.png" type="image/png">
         <title>Seelife Charity</title>
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="../static/css/bootstrap.css">
-        <link rel="stylesheet" href="../static/vendors/linericon/style.css">
-        <link rel="stylesheet" href="../static/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../static/vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="../static/vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../vendors/linericon/style.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../vendors/lightbox/simpleLightbox.css">
+        <link rel="stylesheet" href="../vendors/nice-select/css/nice-select.css">
             <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
-               <link type="text/css" rel="stylesheet" href="../static/css/about.css"/>
+               <link type="text/css" rel="stylesheet" href="../css/about.css"/>
 
         <!-- main css -->
-        <link rel="stylesheet" href="../static/css/style.css">
-        <link rel="stylesheet" href="../static/css/responsive.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/responsive.css">
         </head>
 <body>
         
@@ -89,72 +89,42 @@
             </div>
         
             <div class="row">
-                <div class="col-md-4">
-                                       <div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Organisation Name</div>
-  <div class="card-body text-success">
-   <!-- <h5 class="card-title">Success card title</h5>-->
-      <p class="card-text"><span>Location:- Delhi</span>
-        <br>
-        <span>
-            Serving Size:-30
-        </span>
-        <br>
-        <span>Email    :-abc@gmail.com</span>
-        <br>
-        <span>
-            Phone No:-11232434545
-        </span>
-        <span>
-        </span>
-    </p>
+                {% for restaurant in data %}
 
-  </div>
-  
-  <div class="card-footer bg-transparent border-success">
-    <a href="volunteer.html"><button type="button" class="btn btn-warning">Select</button></a>
-    
-   <button onclick="display();" type="button" class="btn btn-success" style="float:right;">Picked</button>
-</div>
+                    <div class="col-md-4">
+                        <div class="card border-success mb-3" style="max-width: 18rem;">
+                            <div class="card-header bg-transparent border-success">{{restaurant.restaurant_name}}</div>
+                            <div class="card-body text-success">
+                            <!-- <h5 class="card-title">Success card title</h5>-->
+                                <p class="card-text"><span>Location:- {{restaurant.address}},{{restaurant.city}},{{restaurant.country}}</span>
+                                    <br>
+                                    <span>
+                                        Serving Size:-{{restaurant.serving_per_person}}
+                                    </span>
+                                    <br>
+                                    <span>Email    :-{{restaurant.email}}</span>
+                                    <br>
+                                    <span>
+                                        Phone No:-{{restaurant.phone}}
+                                    </span>
+                                    <span>
+                                    </span>
+                                </p>
 
-<!--   <div class="card-footer bg-transparent border-success"><span id='status'>Available</span></div> -->
-
-</div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Header</div>
-  <div class="card-body text-success">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-footer bg-transparent border-success"><button type="button" class="btn btn-warning">Select</button>
-   <button type="button" class="btn btn-success" style="float:right;">Picked</button>
-</div>
-
-  <div class="card-footer bg-transparent border-success"><span id='status'>Available</span></div>
-
-</div>
-                </div>
-                         <div class="col-md-4">
-                    <div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Header</div>
-  <div class="card-body text-success">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-footer bg-transparent border-success"><button type="button" class="btn btn-warning">Select</button>
-   <button type="button" class="btn btn-success" style="float:right;">Picked</button>
-</div>
-
-  <div class="card-footer bg-transparent border-success"><span id='status'>Available</span></div>
-
-</div>
-                </div>
-
-    </div>
-    </div>             <!--================ End Recent Event Area =================-->
+                            </div>
+                            <div class="card-footer bg-transparent border-success">
+                                    <a href="../volunteer/form"><button type="button" class="btn btn-warning">Select</button></a>
+                                    
+                                   <button onclick="display();" type="button" class="btn btn-success" style="float:right;">Picked</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                {% endfor %}
+            </div>
+        </div>           
+        
+        <!--================ End Recent Event Area =================-->
 
 	<!--================ Start Subscribe Area =================-->
 	    <!--================ End Subscribe Area =================-->
