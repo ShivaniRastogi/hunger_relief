@@ -1,0 +1,19 @@
+# server
+
+SERVER_PORT = 8000
+SERVER_HOST = '0.0.0.0'
+SERVER_DEBUG = True
+SERVER_RELOAD = True
+SERVER_TIMEZONE = 'Etc/UTC'
+
+
+# postgreSQL
+
+NAME = 'test'
+USER = 'postgres'
+PASSWORD = 'root'
+PORT = 5432
+
+SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:root@127.0.0.1:5432/hunger'
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+
