@@ -10,6 +10,7 @@ class Restaurant(Base):
     restaurant_name = db.Column(db.String, nullable=True)
     phone = db.Column(db.String, nullable=True)
     email = db.Column(db.String, nullable=True)
+    selected = db.Column(db.Boolean, default=True)
     city = db.Column(db.String, nullable=True)
     country = db.Column(db.String, nullable=True)
     address = db.Column(db.String, nullable=True)
