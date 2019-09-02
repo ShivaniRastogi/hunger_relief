@@ -113,9 +113,12 @@
 
                             </div>
                             <div class="card-footer bg-transparent border-success">
-                                    <a href="../volunteer/form"><button type="button" class="btn btn-warning">Select</button></a>
-                                    
-                                   <button onclick="display();" type="button" class="btn btn-success" style="float:right;">Picked</button>
+                                    {% if (restaurant.selected==true) %}
+                                            <button  onclick="update('{{restaurant.selected}}','{{restaurant.id}}','{{restaurant.email}}')" type="button" class="btn btn-primary" >Select</button>
+                                        {% else %}
+                                            <button type="button"  class="btn" disabled >Select</button>
+                                    {% endif %}
+                                   <button onclick="remove('{{restaurant.id}}')" type="button" class="btn btn-danger" style="float:right;">Picked</button>
                             </div>
                         </div>
                         
@@ -222,20 +225,57 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script type="text/javascript">
-            document.getElementById('')
-        </script>
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/stellar.js"></script>
-        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
-        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-        <script src="js/jquery.ajaxchimp.min.js"></script>
-        <script src="js/mail-script.js"></script>
+        
+           
+        <script src="../js/jquery-3.2.1.min.js"></script>
+        <script src="../js/popper.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/stellar.js"></script>
+        <script src="../vendors/lightbox/simpleLightbox.min.js"></script>
+        <script src="../vendors/nice-select/js/jquery.nice-select.min.js"></script>
+        <script src="../js/jquery.ajaxchimp.min.js"></script>
+        <script src="../js/mail-script.js"></script>
         <!--gmaps Js-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-        <script src="js/gmaps.min.js"></script>
-        <script src="js/theme.js"></script>
+        <script src="../js/gmaps.min.js"></script>
+        <script src="../js/theme.js"></script>
+        <script type="text/javascript">
+            
+            function update(data,id,email){
+                var obj={};
+                data=false;
+                obj=data;
+                var Id=data.id;
+                console.log('obj',obj);
+                $.ajax({
+                    type: 'PUT',
+                    data: obj,
+                    url: '/restaurant/'+Id,
+                    success: function( data, textStatus, jQxhr ){
+                        var URL=window.location.origin;
+                        window.location.href=URL+'/volunteer/form?email='+email;
+                    
+                    },
+                    error: function( jqXhr, textStatus, errorThrown ){
+                        
+                    }
+                });
+            }
+            function remove(id){
+                console.log('id',id);
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/restaurant/'+id,
+                    success: function( data, textStatus, jQxhr ){
+                        location.reload();
+                    
+                    },
+                    error: function( jqXhr, textStatus, errorThrown ){
+                        
+                    }
+                });
+            }
+            // document.getElementById('')
+        </script>
     </body>
 </html>

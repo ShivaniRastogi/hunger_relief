@@ -3,7 +3,7 @@ from hunger_app.model.restaurant import Restaurant
 from hunger_app import app, db, cors
 from flask import jsonify, request
 from hunger_app.schema.restaurant import RestaurantSchema
-from flask import render_template, redirect
+from flask import render_template, redirect,url_for
 import datetime
 import time
 from itertools import cycle
@@ -28,7 +28,9 @@ def restaurant_form():
     else:
         post = Restaurant(**request.form.to_dict())
         post.save()
-        return redirect(str(app.config["APP_URL"]) + '/restaurant/list', code=302)
+        print(str(app.config["APP_URL"]) + '/restaurant/list')
+        return redirect(url_for('restaurant_list'))
+        # return redirect(str(app.config["APP_URL"]) + '/restaurant/list', code=302)
 
 
 @app.route('/restaurant/list', methods=['GET'])
