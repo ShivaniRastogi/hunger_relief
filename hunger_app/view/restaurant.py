@@ -16,7 +16,7 @@ from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 
 
-@app.route('/home', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
 
@@ -55,6 +55,7 @@ def restaurant_list():
 @app.route('/restaurant/<int:id>', methods=['PUT', 'DELETE'])
 def restaurant_id(id):
     if request.method == 'PUT':
+        print(request.json)
         put = Restaurant.query.filter_by(id=id).update(request.json)
         if put:
             Restaurant.update_db()
@@ -101,14 +102,7 @@ def volunteer_form():
         this is the great way to serve humanity
         We are thankfull for your donation'''
         + str(result["contact_no"]) + '''contact no of our volunteer'''
-        print(result["name"])
-        print(result["contact_no"])
-        # Record the MIME types of both parts - text/plain and text/html.
         part1 = MIMEText(text, 'plain')
-        # part2 = MIMEText(html, 'html')
-        # Attach parts into message container.
-        # According to RFC 2046, the last part of a multipart message, in this case
-        # the HTML message, is best and preferred.
         msg.attach(part1)
         # msg.attach(part2)
         msg['To'] = str(result["res_email"])
