@@ -97,17 +97,15 @@ def volunteer_form():
         msg = MIMEMultipart()
         msg['Subject'] = "Volunteer assigned for pickup"
         msg['From'] = gmail_user
-        text = '''Dear , ''' + str(result["name"]) + '''hunger relief is thankful for your support.
+        text = '''Dear ,''' + str(result["name"]) + '''hunger relief is thankful for your support.
         Millions of our fellow beings are dying in hunger while millions of tons of food is being wasted, thrown away and discarded.
         with support of each other we can ensure no one goes to sleep empty stomach
         this is the great way to serve humanity
-        We are thankfull for your donation'''
-        + str(result["contact_no"]) + '''contact no of our volunteer'''
+        We are thankfull for your donation  contact no of our volunteer is''' + str(result["contact_no"])
         part1 = MIMEText(text, 'plain')
         msg.attach(part1)
         # msg.attach(part2)
         msg['To'] = str(result["res_email"])
-        print(result["res_email"])
-        response = server.sendmail(gmail_user, str(result["res_email"]), msg.as_string())
+        server.sendmail(gmail_user, str(result["res_email"]), msg.as_string())
         server.quit()
-        return jsonify({'result': {'response': response}, 'message': "Success", 'error': False})
+        return redirect(url_for('restaurant_list'))
