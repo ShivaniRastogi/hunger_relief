@@ -20,6 +20,12 @@ from email.mime.application import MIMEApplication
 def home():
     return render_template('index.html')
 
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about-us.html')    
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')  
 
 @app.route('/restaurant/form', methods=['GET', 'POST'])
 def restaurant_form():
@@ -95,6 +101,8 @@ def volunteer_form():
         this is the great way to serve humanity
         We are thankfull for your donation'''
         + str(result["contact_no"]) + '''contact no of our volunteer'''
+        print(result["name"])
+        print(result["contact_no"])
         # Record the MIME types of both parts - text/plain and text/html.
         part1 = MIMEText(text, 'plain')
         # part2 = MIMEText(html, 'html')
@@ -104,6 +112,7 @@ def volunteer_form():
         msg.attach(part1)
         # msg.attach(part2)
         msg['To'] = str(result["res_email"])
+        print(result["res_email"])
         response = server.sendmail(gmail_user, str(result["res_email"]), msg.as_string())
         server.quit()
         return jsonify({'result': {'response': response}, 'message': "Success", 'error': False})
