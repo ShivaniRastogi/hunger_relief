@@ -244,19 +244,20 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             function update(data,id,email){
                 var obj={};
                 data=false;
-                obj=data;
-                var Id=data.id;
-                console.log('obj',obj);
+                obj.selected=data;
+                var data=JSON.stringify(obj);
+                console.log('obj',data);
                 $.ajax({
                     type: 'PUT',
-                    data: obj,
-                    url: '/restaurant/'+Id,
-                    success: function( data, textStatus, jQxhr ){
+                    data: data,
+                    url: '/restaurant/'+id,
+                    dataType: 'json',
+                    success: function(result){
                         var URL=window.location.origin;
                         window.location.href=URL+'/volunteer/form?email='+email;
                     
                     },
-                    error: function( jqXhr, textStatus, errorThrown ){
+                    error: function(result){
                         
                     }
                 });
