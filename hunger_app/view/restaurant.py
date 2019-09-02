@@ -3,7 +3,7 @@ from hunger_app.model.restaurant import Restaurant
 from hunger_app import app, db, cors
 from flask import jsonify, request
 from hunger_app.schema.restaurant import RestaurantSchema
-from flask import render_template, redirect,url_for
+from flask import render_template, redirect, url_for
 import datetime
 import time
 from itertools import cycle
