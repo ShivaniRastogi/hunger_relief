@@ -80,6 +80,7 @@ def volunteer_form():
         return render_template('volunteer.html')
     else:
         result = request.form.to_dict()
+        print(result)
         gmail_user = "sharmaabhi069.as@gmail.com"
         gmail_pwd = "9891808371"
         # html = """\
