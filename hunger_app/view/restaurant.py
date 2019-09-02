@@ -34,7 +34,7 @@ def restaurant_form():
     else:
         post = Restaurant(**request.form.to_dict())
         post.save()
-        print(str(app.config["APP_URL"]) + '/restaurant/list')
+        # print(str(app.config["APP_URL"]) + '/restaurant/list')
         return redirect(url_for('restaurant_list'))
         # return redirect(str(app.config["APP_URL"]) + '/restaurant/list', code=302)
 
