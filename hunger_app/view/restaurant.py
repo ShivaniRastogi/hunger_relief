@@ -49,11 +49,13 @@ def restaurant_list():
 @app.route('/restaurant/<int:id>', methods=['PUT', 'DELETE'])
 def restaurant_id(id):
     if request.method == 'PUT':
+        print(request.get_json(force=True))
         put = Restaurant.query.filter_by(id=id).update(request.json)
         if put:
             Restaurant.update_db()
             s = Restaurant.query.filter_by(id=id).first()
             result = RestaurantSchema(many=False).dump(s)
+
             return jsonify({'result': result.data, "status": "Success", 'error': False})
     else:
         res = Restaurant.query.filter_by(id=id).first()
