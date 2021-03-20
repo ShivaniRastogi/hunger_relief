@@ -7,7 +7,7 @@ Flask-Migrate==2.0.4
 Flask-Script==2.0.6
 Flask-SQLAlchemy==1.0
 python-slugify==3.0.3
-Jinja2==2.10.1
+Jinja2==2.11.3
 marshmallow==2.19.5
 marshmallow-enum==1.4.1
 marshmallow-sqlalchemy==0.13.1
